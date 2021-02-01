@@ -24,7 +24,11 @@ services:
             WORDPRESS_DB_HOST: srv-captain--$$cap_appname-db:3306
             WORDPRESS_DB_USER: $$cap_mysql_username
             WORDPRESS_DB_PASSWORD: $$cap_mysql_password
-            REDIS_HOST: srv-captain--$$cap_appname-redis:6379
+            REDIS_HOST: srv-captain--$$cap_appname-redis
+            MAX_CHILDREN: $$cap_max_children
+            START_SERVERS: $$cap_start_servers
+            MIN_SPARES: $$cap_min_spares
+            MAX_SPARES: $$cap_max_spares
         caproverExtra:
             notExposeAsWebApp: 'true'
     $$cap_appname-nginx:
@@ -66,12 +70,29 @@ caproverOneClickApp:
           validRegex: /^(\w|[^\s"])+$/
         - id: $$cap_wordpress_version
           label: Wordpress Verison Tag
-          description: 'Check out their Docker page for the valid tags: https://hub.docker.com/_/wordpress?tab=tags'
-          defaultValue: 'fpm'
+          description: 'Check out their Docker page for the valid tags: https://hub.docker.com/r/ericmathison/wordpress?tab=tags'
+          defaultValue: '5-fpm'
+          validRegex: /^([^\s^\/])+$/
+        - id: $$cap_max_children
+          label: PHP Max Children Processes
+          defaultValue: '5'
+          validRegex: /^([^\s^\/])+$/
+        - id: $$cap_start_servers
+          label: Number of PHP processes to initially start
+          description: (min_spare_servers + max_spare_servers) \ 2
+          defaultValue: '2'
+          validRegex: /^([^\s^\/])+$/
+        - id: $$cap_min_spares
+          label: Min Number of Spares
+          defaultValue: '1'
+          validRegex: /^([^\s^\/])+$/
+        - id: $$cap_max_spares
+          label: Max Number of Spares
+          defaultValue: '3'
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_nginx_version
           label: Nginx Version Tag
-          description: 'Check out their Docker page for the valid tags: https://hub.docker.com/_/nginx?tab=tags'
+          description: 'Check out their Docker page for the valid tags: https://hub.docker.com/r/ericmathison/nginx?tab=tags'
           defaultValue: '1'
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_redis_version
