@@ -49,8 +49,8 @@ services:
             REDIS_PASSWORD: $$cap_redis_password
         caproverExtra:
             dockerfileLines:
-                - FROM redis:$$cap_redis_version
-                - CMD exec redis-server --requirepass "$$cap_redis_password"
+                - FROM redis:$$cap_redis_version-alpine
+                - CMD exec redis-server
             notExposeAsWebApp: 'true'
 caproverOneClickApp:
     variables:
@@ -100,9 +100,6 @@ caproverOneClickApp:
           description: 'Check out their Docker page for the valid tags: https://hub.docker.com/_/redis?tab=tags'
           defaultValue: '6'
           validRegex: /^([^\s^\/])+$/
-        - id: $$cap_redis_password
-          label: Redis Password
-          validRegex: /^(\w|[^\s"])+$/
     instructions:
         start: >-
             Wordpress PHP-FPM + NGINX + MariaDB + Redis Deployment
