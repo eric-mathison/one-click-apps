@@ -31,7 +31,7 @@ services:
             MAX_SPARES: $$cap_max_spares
         caproverExtra:
             notExposeAsWebApp: 'true'
-    $$cap_appname-nginx:
+    $$cap_appname:
         depends_on:
             - $$cap_appname-wordpress
         image: ericmathison/nginx:$$cap_nginx_version
