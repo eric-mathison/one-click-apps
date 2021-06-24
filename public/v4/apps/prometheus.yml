@@ -1,14 +1,13 @@
 captainVersion: 4
 services:
     $$cap_appname:
-        image: prom/prometheus:$$cap_version
+        image: ericmathison/prometheus:$$cap_version
         restart: always
         volumes:
             - $$cap_appname-config:/etc/prometheus
             - $$cap_appname-data:/prometheus
         caproverExtra:
             containerHttpPort: '9090'
-        user: 0:0
 caproverOneClickApp:
     variables:
         - label: Prometheus Version Tag
