@@ -50,6 +50,7 @@ services:
         caproverExtra:
             dockerfileLines:
                 - FROM redis:$$cap_redis_version-alpine
+                - USER redis
                 - CMD exec redis-server
             notExposeAsWebApp: 'true'
 caproverOneClickApp:
