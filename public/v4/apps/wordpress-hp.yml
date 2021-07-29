@@ -1,7 +1,7 @@
 captainVersion: 4
 services:
     $$cap_appname-db:
-        image: mariadb:$$cap_mariadb_version
+        image: ericmathison/mariadb:$$cap_mariadb_version
         volumes:
             - $$cap_appname-db-data:/var/lib/mysql
         restart: always
@@ -56,7 +56,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_mariadb_version
           label: MariaDB Version Tag
-          description: 'Check out their Docker page for the valid tags: https://hub.docker.com/_/mariadb?tab=tags'
+          description: 'Check out their Docker page for the valid tags: https://hub.docker.com/r/ericmathison/mariadb?tab=tags'
           defaultValue: '10'
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mysql_root_password
