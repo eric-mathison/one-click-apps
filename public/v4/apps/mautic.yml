@@ -7,6 +7,9 @@ services:
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: $$cap_mysql_root_password
+            MYSQL_DATABASE: mautic
+            MYSQL_USER: $$cap_mautic_db_user
+            MYSQL_PASSWORD: $$cap_mautic_db_password
         caproverExtra:
             notExposeAsWebApp: 'true'
     $$cap_appname:
