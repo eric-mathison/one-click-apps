@@ -24,7 +24,7 @@ services:
             MAUTIC_DB_PASSWORD: $$cap_mautic_db_password
             MAUTIC_DB_NAME: mautic
             MAUTIC_RUN_CRON_JOBS: 'true'
-            MAUTIC_TRUSTED_PROXIES: '10.0.0.0/8'
+            MAUTIC_TRUSTED_PROXIES: ["0.0.0.0\\/0"]
         caproverExtra:
             dockerfileLines:
                 - FROM mautic/mautic:v$$cap_mautic_version
