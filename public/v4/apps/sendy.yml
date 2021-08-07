@@ -17,6 +17,8 @@ services:
         depends_on:
             - $$cap_appname-db
         restart: always
+        volumes:
+            - $$cap_appname-data:/var/www/html
         environment:
             SENDY_FQDN: $$cap_sendy_fqdn
             MYSQL_HOST: srv-captain--$$cap_appname-db
