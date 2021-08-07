@@ -54,7 +54,7 @@ caproverOneClickApp:
             Sendy + MariaDB Deployment
         end: >
             Deployment has finished.
-    displayName: ''
+    displayName: 'Sendy'
     isOfficial: true
     description: Sendy + MariaDB Deployment
     documentation: none

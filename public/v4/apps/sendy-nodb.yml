@@ -35,7 +35,7 @@ caproverOneClickApp:
             Sendy No Database Deployment
         end: >
             Deployment has finished.
-    displayName: ''
+    displayName: 'Sendy No Database'
     isOfficial: true
     description: Sendy No Database Deployment
     documentation: none
